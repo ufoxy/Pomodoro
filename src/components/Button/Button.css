@@ -37,6 +37,7 @@
 }
 
 .button-start:focus {
+    background-color: #FFFF;
     transform: translateY(6px);
     box-shadow: none;
 }

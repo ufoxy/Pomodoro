@@ -2,9 +2,9 @@ import React from 'react';
 
 import './Button.css'
 
-function Button({ children }) {
+function Button({ children, className }) {
     return (
-        <button className='button'>
+        <button className={className}>
             {children}
         </button>
     );
