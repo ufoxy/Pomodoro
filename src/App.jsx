@@ -11,13 +11,23 @@ function App() {
       useTime(time)
   }
 
+  const [style, setStyle] = useState('pomodoro-style')
+
+  function HandleSetStyle(style) {
+    let value = style
+    setStyle(value)
+  }
+
   return (
-    <div className="containerx">
+    
+    <div className={style}>
       <PomodoroCounter
       HandleAddTime={HandleAddTime}
+      HandleSetStyle={HandleSetStyle}
       time={time}
       />
     </div>
+
   );
 }
 

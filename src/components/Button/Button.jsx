@@ -2,12 +2,15 @@ import React from 'react';
 
 import './Button.css'
 
-function Button({ children, HandleAddTime, time }) {
+function Button({ children, HandleAddTime, HandleSetStyle, time }) {
 
     return (
         <button 
         className='button'
-        onClick={() => HandleAddTime(time)}
+        onClick={() => {
+            HandleAddTime(time)
+            HandleSetStyle()
+        }}
         >
             {children}
         </button>

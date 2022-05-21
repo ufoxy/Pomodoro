@@ -5,41 +5,28 @@ import Counter from '../counter/Counter.jsx';
 import StartButton from '../start-button/StartButton.jsx';
 import './PomodoroCounter.css';
 
-function PomodoroCounter({ HandleAddTime, time }) {
-
-    // handleStyleClick
-
-    // const pomodoroStyles = {
-    //     backgroundColor: '#D95550',
-    // }
-
-    // const shortBreakStyles = {
-
-    // }
-
-    // const longBreakStyles = {
-
-    // }
+function PomodoroCounter({ HandleAddTime, HandleSetStyle, time }) {
 
     return (
             <div className="pomodoro-counter pomodoro-counter-container">
             <div
-            // onClick={handleStyleClick}
             >
                 <Button
                 children={"Pomodoro"}
                 HandleAddTime={HandleAddTime}
-                // style={
+                HandleSetStyle={() => HandleSetStyle("pomodoro-style")}
                 time={"25:00"}
                 />
                 <Button
                 children={"Short Break"}
                 HandleAddTime={HandleAddTime}
+                HandleSetStyle={() => HandleSetStyle("short-break-style")}
                 time={"05:00"}
                 />
                 <Button
                 children={"Long Break"}
                 HandleAddTime={HandleAddTime}
+                HandleSetStyle={() => HandleSetStyle("long-break-style")}
                 time={"15:00"}
                 />
             </div>

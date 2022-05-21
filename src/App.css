@@ -1,0 +1,18 @@
+.pomodoro-style {
+    background-color: #D95550;
+    height: 100vh;
+    padding: 15vh 0;
+}
+
+.short-break-style {
+    background-color: #50b2d9;
+    height: 100vh;
+    padding: 15vh 0;
+}
+
+.long-break-style {
+    background-color: #5059d9;
+    height: 100vh;
+    padding: 15vh 0;
+}
+
