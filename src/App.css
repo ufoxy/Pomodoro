@@ -2,17 +2,20 @@
     background-color: #D95550;
     height: 100vh;
     padding: 15vh 0;
+    transition: all 300ms;
 }
 
 .short-break-style {
     background-color: #50b2d9;
     height: 100vh;
     padding: 15vh 0;
+    transition: all 300ms;
 }
 
 .long-break-style {
     background-color: #5059d9;
     height: 100vh;
     padding: 15vh 0;
+    transition: all 300ms;
 }
 

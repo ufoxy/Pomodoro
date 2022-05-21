@@ -1,33 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from '../button/Button.jsx';
 import Counter from '../counter/Counter.jsx';
 import StartButton from '../start-button/StartButton.jsx';
 import './PomodoroCounter.css';
 
-function PomodoroCounter({ HandleAddTime, HandleSetStyle, time }) {
+function PomodoroCounter({ HandleAddTime, HandleSetAppStyle, time }) {
+
+    const [style, setStyle] = useState('pomodoro-counter-style')
+
+    function HandleSetPomodoroDivStyle(style) {
+        let value = style
+        setStyle(value)
+    }
 
     return (
-            <div className="pomodoro-counter pomodoro-counter-container">
+            <div className={`pomodoro pomodoro-container ${style}`}>
             <div
             >
                 <Button
                 children={"Pomodoro"}
-                HandleAddTime={HandleAddTime}
-                HandleSetStyle={() => HandleSetStyle("pomodoro-style")}
-                time={"25:00"}
+                HandleAddTime={() => HandleAddTime("25:00")}
+                HandleSetAppStyle={() => HandleSetAppStyle("pomodoro-style")}
+                HandleSetPomodoroDivStyle={() => HandleSetPomodoroDivStyle("pomodoro-counter-style")}
                 />
                 <Button
                 children={"Short Break"}
-                HandleAddTime={HandleAddTime}
-                HandleSetStyle={() => HandleSetStyle("short-break-style")}
-                time={"05:00"}
+                HandleAddTime={() => HandleAddTime("05:00")}
+                HandleSetAppStyle={() => HandleSetAppStyle("short-break-style")}
+                HandleSetPomodoroDivStyle={() => HandleSetPomodoroDivStyle("pomodoro-short-break-style")}
                 />
                 <Button
                 children={"Long Break"}
-                HandleAddTime={HandleAddTime}
-                HandleSetStyle={() => HandleSetStyle("long-break-style")}
-                time={"15:00"}
+                HandleAddTime={() => HandleAddTime("15:00")}
+                HandleSetAppStyle={() => HandleSetAppStyle("long-break-style")}
+                HandleSetPomodoroDivStyle={() => HandleSetPomodoroDivStyle("pomodoro-long-break-style")}
                 />
             </div>
             <div>
