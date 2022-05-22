@@ -1,4 +1,4 @@
-.pomodoro-container {
+.pomodoroDiv-container {
     display: flex;
     overflow: hidden;
     align-items: center;
@@ -7,25 +7,15 @@
     gap: 8%;
 }
 
-.pomodoro {
+.pomodoroDiv {
     max-width: 650px;
     min-height: 450px;
     margin: 0 auto;
     border-radius: 8px;
+    transition: all 400ms;
 }
 
-.pomodoro-counter-style {
-    background-color: #DD6662;
-    transition: all 300ms;
-}
-
-.pomodoro-short-break-style{
-    background-color: #62c7dd;
-    transition: all 300ms;
-}
-
-.pomodoro-long-break-style{
-    background-color: #6662dd;
-    transition: all 300ms;
-}
+.pomodoroDiv-pomodoro-style { background-color: #DD6662; }
+.pomodoroDiv-short-break-style{ background-color: #5E9CA0; }
+.pomodoroDiv-long-break-style{ background-color: #5889AC; }
 

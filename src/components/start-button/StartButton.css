@@ -1,22 +1,26 @@
-.button-start {
+.start-button {
     cursor: pointer;
     border: none;
     margin: 20px 0px 0px;
     padding: 0px 12px;
     border-radius: 4px;
     box-shadow: rgb(235 235 235) 0px 6px 0px;
-    font-family: ArialRounded;
+    font-family: 'Roboto';
     font-size: 22px;
     height: 55px;
-    color: rgb(217, 85, 80);
     font-weight: bold;
     width: 200px;
     background-color: white;
     transition: color 0.5s ease-in-out 0s;
 }
 
-.button-start:active {
+.start-button-active {
     background-color: #FFFF;
     transform: translateY(6px);
     box-shadow: none;
 }
+
+.start-button-pomodoro-style { color: #D95550; }
+.start-button-short-break-style { color: #5E9CA0; }
+.start-button-long-break-style { color: #457CA3; }
+

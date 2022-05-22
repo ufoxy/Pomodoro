@@ -5,13 +5,7 @@ import './App.css';
 
 function App() {
 
-  const [time, useTime] = useState('25:00')
-
-  function HandleAddTime(time) {
-      useTime(time)
-  }
-
-  const [style, setStyle] = useState('pomodoro-style')
+  const [style, setStyle] = useState('app-pomodoro-style')
 
   function HandleSetAppStyle(style) {
     let value = style
@@ -19,11 +13,9 @@ function App() {
   }
 
   return (
-    <div className={style}>
+    <div className={`App ${style}`}>
       <PomodoroCounter
-      HandleAddTime={HandleAddTime}
       HandleSetAppStyle={HandleSetAppStyle}
-      time={time}
       />
     </div>
 
