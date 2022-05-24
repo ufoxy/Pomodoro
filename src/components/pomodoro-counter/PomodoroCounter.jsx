@@ -7,9 +7,9 @@ import './PomodoroCounter.css';
 
 function PomodoroCounter({ HandleSetAppStyle }) {
 
-    let [minutes, setMinutes] = useState('25');
-    let [seconds, setSeconds] = useState('00');
-    const [counterInterval, setCounterInterval] = useState();
+    let [minutes, setMinutes] = useState('00');
+    let [seconds, setSeconds] = useState('02');
+    const [counterInterval, setCounterInterval] = useState(undefined);
     const [time, setTime] = useState('00:00');
     const [styleDiv, setStyleDiv] = useState('pomodoroDiv-pomodoro-style');
     const [startOrStop, setStartOrStop] = useState(false);
@@ -22,7 +22,13 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     const [styleStartButton, setStyleStartButton] = useState('start-button-pomodoro-style');
 
     useEffect(() => {
-        setTime(`${minutes}:${seconds}`);
+        if (!parseInt(seconds) && !parseInt(minutes)) {
+            console.log('oi');
+            setTime('00:00');
+            disableStartButton();
+            setStartOrStop(false);
+            return resetCounter();
+        } else setTime(`${minutes}:${seconds}`);
     }, [minutes, seconds]);
 
     function HandleAddTime(minutes, seconds) {
@@ -43,17 +49,12 @@ function PomodoroCounter({ HandleSetAppStyle }) {
 
     function disableStartButton() {
 
-        const newArrayStyle = startButton.map((e) => {
-            if (e.active) return { style: '', active: false }
-            return e;
-        });
-        const newArrayChildren = startButton.map((e) => {
-            if (e.active) return { content: 'START', active: false }
+        const newArray = startButton.map((e) => {
+            if (e.active) return { content: 'START', style: '', active: false }
             return e;
         });
 
-        setStartButton(newArrayStyle);
-        setStartButton(newArrayChildren);
+        setStartButton(newArray);
     };
 
     function HandleStartButtonClick() {
@@ -75,21 +76,19 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     };
 
     function updateCounter(){
-        setMinutes(parseInt(minutes) < 10 ? `0${parseInt(minutes)}` : parseInt(minutes))
-        setSeconds(parseInt(seconds) < 10 ? `0${parseInt(seconds)}` : parseInt(seconds))
+        setMinutes(parseInt(minutes) < 10 ? `0${parseInt(minutes)}` : `${parseInt(minutes)}`)
+        setSeconds(parseInt(seconds) < 10 ? `0${parseInt(seconds)}` : `${parseInt(seconds)}`)
       }
   
     function startCounter() {
 
         if (counterInterval) return;
+        if (!parseInt(seconds) && !parseInt(minutes)) return;
       
         setCounterInterval(setInterval(() => { 
       
-          const timeOver = !parseInt(seconds) && !parseInt(minutes);
           const secondsOver = !parseInt(seconds);
-      
-          if (timeOver) return destroyInterval();
-      
+
           if (secondsOver) {
             setSeconds(parseInt(seconds = 59));
             setMinutes(parseInt(--minutes));
@@ -112,6 +111,13 @@ function PomodoroCounter({ HandleSetAppStyle }) {
         setCounterInterval(clearInterval(counterInterval));
         setCounterInterval(undefined);
     };
+
+    function resetCounter(){
+        destroyInterval();
+        setMinutes('00');
+        setSeconds('00');
+        updateCounter();
+      }
 
     return (
             <div className={`pomodoroDiv pomodoroDiv-container ${styleDiv}`}>
