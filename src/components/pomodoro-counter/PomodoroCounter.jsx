@@ -12,7 +12,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     const [counterInterval, setCounterInterval] = useState();
     const [time, setTime] = useState('00:00');
     const [styleDiv, setStyleDiv] = useState('pomodoroDiv-pomodoro-style');
-    const [StartOrStop, setStartOrStop] = useState(false);
+    const [startOrStop, setStartOrStop] = useState(false);
     const [startButton, setStartButton] = useState([{
         content: 'START',
         style: '',
@@ -65,7 +65,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     };
 
     function HandleStartOrStop() {
-        if (!StartOrStop) {
+        if (!startOrStop) {
             setStartOrStop(true);
             startCounter();
         } else {
