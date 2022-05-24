@@ -9,18 +9,16 @@ function PomodoroCounter({ HandleSetAppStyle }) {
 
     let [minutes, setMinutes] = useState('25');
     let [seconds, setSeconds] = useState('00');
-    let [StartOrStop, setStartOrStop] = useState(false);
     const [counterInterval, setCounterInterval] = useState();
     const [time, setTime] = useState('00:00');
     const [styleDiv, setStyleDiv] = useState('pomodoroDiv-pomodoro-style');
-    const [styleStartButtonClick, setStyleStartButtonClick] = useState([{
+    const [StartOrStop, setStartOrStop] = useState(false);
+    const [startButton, setStartButton] = useState([{
+        content: 'START',
         style: '',
         active: false,
-    }]);
-    const [childrenStartButtonClick, setChildrenStartButtonClick] = useState([{
-        content: 'START',
-        active: false,
-    }]);
+    }])
+
     const [styleStartButton, setStyleStartButton] = useState('start-button-pomodoro-style');
 
     useEffect(() => {
@@ -45,30 +43,25 @@ function PomodoroCounter({ HandleSetAppStyle }) {
 
     function disableStartButton() {
 
-        const newArrayStyle = styleStartButtonClick.map((e) => {
+        const newArrayStyle = startButton.map((e) => {
             if (e.active) return { style: '', active: false }
             return e;
         });
-        const newArrayChildren = childrenStartButtonClick.map((e) => {
+        const newArrayChildren = startButton.map((e) => {
             if (e.active) return { content: 'START', active: false }
             return e;
         });
 
-        setStyleStartButtonClick(newArrayStyle);
-        setChildrenStartButtonClick(newArrayChildren);
+        setStartButton(newArrayStyle);
+        setStartButton(newArrayChildren);
     };
 
     function HandleStartButtonClick() {
-
-        const newArrayStyle = styleStartButtonClick.map((e) => {
-            return !e.active ? { style: "start-button-active", active: true} : { style: '', active: false};
-        });
-        const newArrayChildren = childrenStartButtonClick.map((e) => {
-            return !e.active ? { content: 'STOP', active: true } : { content: 'START', active: false };
+        const newArray = startButton.map((e) => {
+            return !e.active ? { content: 'STOP', active: true, style: "start-button-active" } : { content: 'START', active: false, style: '' };
         });
 
-        setStyleStartButtonClick(newArrayStyle);
-        setChildrenStartButtonClick(newArrayChildren);
+        setStartButton(newArray);
     };
 
     function HandleStartOrStop() {
@@ -151,8 +144,8 @@ function PomodoroCounter({ HandleSetAppStyle }) {
             </div>
             <div>
                 <StartButton
-                className={`start-button ${styleStartButton} ${styleStartButtonClick.map(e => e.style)}`}
-                children={childrenStartButtonClick.map(e => e.content)}
+                className={`start-button ${styleStartButton} ${startButton.map(e => e.style)}`}
+                children={startButton.map(e => e.content)}
                 HandleStartButtonClick={() => HandleStartButtonClick()}
                 HandleStartOrStop={() => HandleStartOrStop()}
                 />
