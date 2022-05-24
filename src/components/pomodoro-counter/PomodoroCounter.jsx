@@ -22,14 +22,17 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     const [styleStartButton, setStyleStartButton] = useState('start-button-pomodoro-style');
 
     useEffect(() => {
-        if (!parseInt(seconds) && !parseInt(minutes)) {
-            console.log('oi');
+        finalizeCounter()
+    }, [minutes, seconds]);
+
+    function finalizeCounter() {
+        if(!parseInt(seconds) && !parseInt(minutes)) {
             setTime('00:00');
             disableStartButton();
             setStartOrStop(false);
-            return resetCounter();
-        } else setTime(`${minutes}:${seconds}`);
-    }, [minutes, seconds]);
+            resetCounter();
+        } else setTime(`${minutes}:${seconds}`)
+    }
 
     function HandleAddTime(minutes, seconds) {
         destroyInterval();
@@ -76,8 +79,8 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     };
 
     function updateCounter(){
-        setMinutes(parseInt(minutes) < 10 ? `0${parseInt(minutes)}` : `${parseInt(minutes)}`)
-        setSeconds(parseInt(seconds) < 10 ? `0${parseInt(seconds)}` : `${parseInt(seconds)}`)
+        setMinutes(parseInt(minutes) < 10 ? `0${parseInt(minutes)}` : minutes)
+        setSeconds(parseInt(seconds) < 10 ? `0${parseInt(seconds)}` : seconds)
       }
   
     function startCounter() {
