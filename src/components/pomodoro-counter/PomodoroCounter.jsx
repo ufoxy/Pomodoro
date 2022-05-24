@@ -7,9 +7,9 @@ import './PomodoroCounter.css';
 
 function PomodoroCounter({ HandleSetAppStyle }) {
 
-    let [minutes, setMinutes] = useState('00');
-    let [seconds, setSeconds] = useState('02');
-    const [counterInterval, setCounterInterval] = useState(undefined);
+    let [minutes, setMinutes] = useState('25');
+    let [seconds, setSeconds] = useState('00');
+    const [counterInterval, setCounterInterval] = useState();
     const [time, setTime] = useState('00:00');
     const [styleDiv, setStyleDiv] = useState('pomodoroDiv-pomodoro-style');
     const [startOrStop, setStartOrStop] = useState(false);
