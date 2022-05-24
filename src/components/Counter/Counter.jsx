@@ -2,10 +2,11 @@ import React from 'react';
 
 import './Counter.css';
 
-function Counter({ children }) {
+function Counter({ time }) {
+
     return (
         <div className='counter'>
-            {children}
+            {time}
         </div>
     );
 }
