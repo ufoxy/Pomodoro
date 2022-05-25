@@ -26,8 +26,6 @@ function PomodoroCounter({ HandleSetAppStyle }) {
 
     useEffect(() => {
 
-
-
         function percentageCalculator() {
             const value = parseFloat(`${minutes}.${seconds}`)
             const percentage = percentDiff(initialValue, value) * -1
@@ -180,7 +178,6 @@ function PomodoroCounter({ HandleSetAppStyle }) {
             </div>
                 <div>
                 <Progress done={progressPercentage} />
-                {/* <ProgressBar now={progressPercentage} /> */}
                 </div>
         </div>
     );
