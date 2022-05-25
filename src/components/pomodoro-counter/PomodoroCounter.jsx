@@ -12,6 +12,8 @@ function PomodoroCounter({ HandleSetAppStyle }) {
 
     let [minutes, setMinutes] = useState('25');
     let [seconds, setSeconds] = useState('00');
+    let [initialValue, setInitialValue] = useState(25)
+    const [progressPercentage, setProgressPercentage] = useState()
     const [counterInterval, setCounterInterval] = useState();
     const [time, setTime] = useState('00:00');
     const [styleDiv, setStyleDiv] = useState('pomodoroDiv-pomodoro-style');
@@ -23,18 +25,34 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     }])
     const [styleStartButton, setStyleStartButton] = useState('start-button-pomodoro-style');
 
+    // console.log(parseFloat(`${minutes}.${seconds}`))
+    // console.log(100 + (percentDiff(25, parseFloat(`${24}.${59}`))))
+
     useEffect(() => {
+
+
+
+        function percentageCalculator() {
+            const value = parseFloat(`${minutes}.${seconds}`)
+            const percentage = percentDiff(initialValue, value) * -1
+            console.log(percentage)
+            setProgressPercentage(percentage)
+        }
 
         if(!parseInt(seconds) && !parseInt(minutes)) {
             
             setCounterInterval(clearInterval(counterInterval));
             setStartButton([{ content: 'START', style: '', active: false }]);
             setStartOrStop(false);
+            setProgressPercentage(100)
             setTime('00:00');
             setMinutes('00');
             setSeconds('00');
 
-        } else setTime(`${minutes}:${seconds}`)
+        } else {
+            setTime(`${minutes}:${seconds}`)
+            percentageCalculator()
+        }
     }, [minutes, seconds, counterInterval]);
 
 
@@ -42,6 +60,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     function HandleAddTime(minutes, seconds) {
         destroyInterval();
         setStartOrStop(false);
+        setInitialValue(parseInt(minutes))
         setMinutes(minutes);
         setSeconds(seconds);
         disableStartButton();
@@ -127,9 +146,6 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     //     updateCounter();
     //   }
 
-    console.log(parseInt(`${minutes}${seconds}`))
-    console.log(100 - percentDiff(2459, 2500))
-
 //     const now = 1;
 
 //     const progressInstance = (
@@ -185,7 +201,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 />
             </div>
                 <div style={progressBar}>
-                <ProgressBar now={60} />
+                <ProgressBar now={progressPercentage} />
                 </div>
         </div>
     );
