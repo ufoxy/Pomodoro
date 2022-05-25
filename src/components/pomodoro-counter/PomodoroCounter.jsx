@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
+import percentDiff from 'percentage-difference';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import Button from '../button/Button.jsx';
 import Counter from '../counter/Counter.jsx';
 import StartButton from '../start-button/StartButton.jsx';
-import percentDiff from 'percentage-difference';
+import Progress from '../progress-bar/ProgressBar.jsx'
 import './PomodoroCounter.css';
 
 function PomodoroCounter({ HandleSetAppStyle }) {
@@ -24,9 +25,6 @@ function PomodoroCounter({ HandleSetAppStyle }) {
         active: false,
     }])
     const [styleStartButton, setStyleStartButton] = useState('start-button-pomodoro-style');
-
-    // console.log(parseFloat(`${minutes}.${seconds}`))
-    // console.log(100 + (percentDiff(25, parseFloat(`${24}.${59}`))))
 
     useEffect(() => {
 
@@ -146,24 +144,6 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     //     updateCounter();
     //   }
 
-//     const now = 1;
-
-//     const progressInstance = (
-//         <ProgressBar now={now} label={`${now}%`} visuallyHidden />
-//     );
-
-// render(progressInstance);
-
-    const progressBar = {
-        display: 'block', 
-        bottom: 0, 
-        width: 500, 
-        marginRight: 'auto', 
-        marginLeft: 'auto', 
-        paddingTop: 50, 
-        paddingBottom: 20,
-    }
-
     return (
             <div className={`pomodoroDiv pomodoroDiv-container ${styleDiv}`}>
             <div style={{ paddingTop: 50 }} >
@@ -200,8 +180,9 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 HandleStartOrStop={() => HandleStartOrStop()}
                 />
             </div>
-                <div style={progressBar}>
-                <ProgressBar now={progressPercentage} />
+                <div>
+                <Progress done={progressPercentage} />
+                {/* <ProgressBar now={progressPercentage} /> */}
                 </div>
         </div>
     );
