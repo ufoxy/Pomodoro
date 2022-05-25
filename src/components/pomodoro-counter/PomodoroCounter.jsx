@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import percentDiff from 'percentage-difference';
-import ProgressBar from 'react-bootstrap/ProgressBar';
-import 'bootstrap/dist/css/bootstrap.css';
 
 import Button from '../button/Button.jsx';
 import Counter from '../counter/Counter.jsx';
