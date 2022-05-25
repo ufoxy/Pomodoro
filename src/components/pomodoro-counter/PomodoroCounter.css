@@ -1,10 +1,11 @@
 .pomodoroDiv-container {
     text-align: center;
-    /* display: flex;
+    display: flex;
     overflow: hidden;
     align-items: center;
     flex-direction: column;
-    justify-content: center; */
+    justify-content: center;
+    gap: 10px;
 }
 
 .pomodoroDiv {
