@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import Button from '../button/Button.jsx';
 import Counter from '../counter/Counter.jsx';
 import StartButton from '../start-button/StartButton.jsx';
-import percentDiff from 'percentage-difference';
+// import percentDiff from 'percentage-difference';
 import './PomodoroCounter.css';
 
 function PomodoroCounter({ HandleSetAppStyle }) {
@@ -34,7 +32,9 @@ function PomodoroCounter({ HandleSetAppStyle }) {
             setMinutes('00');
             setSeconds('00');
 
-        } else setTime(`${minutes}:${seconds}`)
+        } else {
+            setTime(`${minutes}:${seconds}`)
+        }
     }, [minutes, seconds, counterInterval]);
 
 
@@ -127,30 +127,13 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     //     updateCounter();
     //   }
 
-    console.log(parseInt(`${minutes}${seconds}`))
-    console.log(100 - percentDiff(2459, 2500))
+    // console.log(parseInt(`${minutes}${seconds}`))
+    // console.log(100 - percentDiff(2459, 2500))
 
-//     const now = 1;
-
-//     const progressInstance = (
-//         <ProgressBar now={now} label={`${now}%`} visuallyHidden />
-//     );
-
-// render(progressInstance);
-
-    const progressBar = {
-        display: 'block', 
-        bottom: 0, 
-        width: 500, 
-        marginRight: 'auto', 
-        marginLeft: 'auto', 
-        paddingTop: 50, 
-        paddingBottom: 20,
-    }
 
     return (
             <div className={`pomodoroDiv pomodoroDiv-container ${styleDiv}`}>
-            <div style={{ paddingTop: 50 }} >
+            <div>
                 <Button
                 children={"Pomodoro"}
                 HandleAddTime={() => HandleAddTime('25', '00')}
@@ -173,10 +156,10 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 HandleSetStartButtonStyle={() => HandleSetStartButtonStyle("start-button-long-break-style")}
                 />
             </div>
-                <div style={{ paddingTop: 0 }}>
+                <div>
                     <Counter time={time} />
                 </div>
-            <div style={{ paddingTop: 40 }}>
+            <div>
                 <StartButton
                 className={`start-button ${styleStartButton} ${startButton.map(e => e.style)}`}
                 children={startButton.map(e => e.content)}
@@ -184,9 +167,6 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 HandleStartOrStop={() => HandleStartOrStop()}
                 />
             </div>
-                <div style={progressBar}>
-                <ProgressBar now={60} />
-                </div>
         </div>
     );
 }
