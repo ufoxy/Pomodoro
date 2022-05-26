@@ -20,12 +20,5 @@
 	height: 100%;
 	width: 0;
 	opacity: 0;
-	transition: 1s ease 0.3s;
+	transition: width 1s ease 0.3s;
 }
-
-/* display: 'block', 
-        width: 500, 
-        marginRight: 'auto', 
-        marginLeft: 'auto', 
-        paddingTop: 50, 
-        paddingBottom: 20, */
