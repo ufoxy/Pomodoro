@@ -8,7 +8,7 @@
     gap: 10px;
 }
 
-.pomodoro-couter {
+.pomodoro-counter {
     max-width: 650px;
     min-height: 450px;
     margin: 0 auto;
@@ -16,7 +16,7 @@
     transition: all 400ms;
 }
 
-.pomodoroDiv-pomodoro-style { background-color: #DD6662; }
-.pomodoroDiv-short-break-style{ background-color: #5E9CA0; }
-.pomodoroDiv-long-break-style{ background-color: #5889AC; }
+.pomodoro-counter-style { background-color: #DD6662; }
+.pomodoro-short-break-style{ background-color: #5E9CA0; }
+.pomodoro-long-break-style{ background-color: #5889AC; }
 
