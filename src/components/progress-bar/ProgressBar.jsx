@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProgressBar.css';
 
-const Progress = ({done}) => {
+const Progress = ({ className, done }) => {
 	const [style, setStyle] = React.useState({});
 	
 	setTimeout(() => {
@@ -15,7 +15,7 @@ const Progress = ({done}) => {
 	
 	return (
 		<div className="progress">
-			<div className="progress-done" style={style}></div>
+			<div className={`progress-done ${className}`} style={style}></div>
 		</div>
 	)
 }

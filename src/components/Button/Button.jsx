@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Button.css'
 
-function Button({ children, active, HandleAddTime, HandleSetAppStyle, HandleSetPomodoroDivStyle, HandleSetStartButtonStyle, HandleSetStyleButton }) {
+function Button({ children, active, HandleAddTime, HandleSetAppStyle, HandleSetPomodoroDivStyle, HandleSetStartButtonStyle, HandleSetActiveButtonStyle, HandleSetProgressStyle }) {
 
     return (
         <button 
@@ -12,7 +12,8 @@ function Button({ children, active, HandleAddTime, HandleSetAppStyle, HandleSetP
             HandleSetAppStyle()
             HandleSetPomodoroDivStyle()
             HandleSetStartButtonStyle()
-            HandleSetStyleButton()
+            HandleSetActiveButtonStyle()
+            HandleSetProgressStyle()
         }}
         >
             {children}

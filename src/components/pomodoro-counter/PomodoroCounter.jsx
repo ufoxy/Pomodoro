@@ -28,7 +28,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
         shortBreak: '',
         longBreak: '',
     }])
-
+    const [styleProgress, setStyleProgress] = useState('progress-pomodoro-style')
 
     useEffect(() => {
 
@@ -55,7 +55,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
         }
     }, [minutes, seconds, counterInterval]);
 
-    function HandleSetStyleButton(button) {
+    function HandleSetActiveButtonStyle(button) {
 
         const active = 'button-active'
         let newArray = 0
@@ -68,6 +68,20 @@ function PomodoroCounter({ HandleSetAppStyle }) {
             newArray = [{pomodoro: '', shortBreak: '', longBreak: active}]
         }
         setStylePomodoroButton(newArray)
+    }
+
+    function HandleSetProgressStyle(button) {
+
+        let newStyle = 0
+
+        if(button === 'pomodoro') {
+            newStyle = 'progress-pomodoro-style'
+        } else if (button === 'short-break') {
+            newStyle = 'progress-short-break-style'
+        } else if (button === 'long-break') {
+            newStyle = 'progress-long-break-style'
+        }
+        setStyleProgress(newStyle)
     }
 
     function HandleAddTime(minutes, seconds) {
@@ -169,7 +183,8 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 HandleSetAppStyle={() => HandleSetAppStyle("app-pomodoro-style")}
                 HandleSetPomodoroDivStyle={() => HandleSetPomodoroDivStyle("pomodoroDiv-pomodoro-style")}
                 HandleSetStartButtonStyle={() => HandleSetStartButtonStyle("start-button-pomodoro-style")}
-                HandleSetStyleButton={() => HandleSetStyleButton('pomodoro')}
+                HandleSetActiveButtonStyle={() => HandleSetActiveButtonStyle('pomodoro')}
+                HandleSetProgressStyle={() => HandleSetProgressStyle('pomodoro')}
                 />
                 <Button
                 children={"Short Break"}
@@ -178,7 +193,8 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 HandleSetAppStyle={() => HandleSetAppStyle("app-short-break-style")}
                 HandleSetPomodoroDivStyle={() => HandleSetPomodoroDivStyle("pomodoroDiv-short-break-style")}
                 HandleSetStartButtonStyle={() => HandleSetStartButtonStyle("start-button-short-break-style")}
-                HandleSetStyleButton={() => HandleSetStyleButton('short-break')}
+                HandleSetActiveButtonStyle={() => HandleSetActiveButtonStyle('short-break')}
+                HandleSetProgressStyle={() => HandleSetProgressStyle('short-break')}
                 />
                 <Button
                 children={"Long Break"}
@@ -187,7 +203,8 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 HandleSetAppStyle={() => HandleSetAppStyle("app-long-break-style")}
                 HandleSetPomodoroDivStyle={() => HandleSetPomodoroDivStyle("pomodoroDiv-long-break-style")}
                 HandleSetStartButtonStyle={() => HandleSetStartButtonStyle("start-button-long-break-style")}
-                HandleSetStyleButton={() => HandleSetStyleButton('long-break')}
+                HandleSetActiveButtonStyle={() => HandleSetActiveButtonStyle('long-break')}
+                HandleSetProgressStyle={() => HandleSetProgressStyle('long-break')}
                 />
             </div>
                 <div>
@@ -202,7 +219,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 />
             </div>
                 <div>
-                <Progress done={progressPercentage} />
+                <Progress className={styleProgress} done={progressPercentage} />
                 </div>
         </div>
     );
