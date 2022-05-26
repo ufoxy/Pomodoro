@@ -6,7 +6,7 @@ function StartButton({ children, className, HandleStartButtonClick, HandleStartO
 
     return (
         <button 
-        className={className}
+        className={`start-button ${className}`}
         onClick={() => {
             HandleStartButtonClick()
             HandleStartOrStop()

@@ -53,7 +53,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
             setTime(`${minutes}:${seconds}`)
             percentageCalculator()
         }
-    }, [minutes, seconds, counterInterval]);
+    }, [minutes, seconds, counterInterval, initialValue]);
 
     function HandleSetActiveButtonStyle(button) {
 
@@ -212,14 +212,17 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 </div>
             <div>
                 <StartButton
-                className={`start-button ${styleStartButton} ${startButton.map(e => e.style)}`}
+                className={`${styleStartButton} ${startButton.map(e => e.style)}`}
                 children={startButton.map(e => e.content)}
                 HandleStartButtonClick={() => HandleStartButtonClick()}
                 HandleStartOrStop={() => HandleStartOrStop()}
                 />
             </div>
                 <div>
-                <Progress className={styleProgress} done={progressPercentage} />
+                <Progress 
+                className={styleProgress} 
+                done={progressPercentage} 
+                />
                 </div>
         </div>
     );
