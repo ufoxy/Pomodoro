@@ -15,7 +15,7 @@
     transition: all 100ms;
 }
 
-.button:hover {
+.button-active {
     background: none rgba(0, 0, 0, 0.15);
     opacity: 1;
     font-weight: 900;

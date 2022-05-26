@@ -23,6 +23,12 @@ function PomodoroCounter({ HandleSetAppStyle }) {
         active: false,
     }])
     const [styleStartButton, setStyleStartButton] = useState('start-button-pomodoro-style');
+    const [stylePomodoroButton, setStylePomodoroButton] = useState([{
+        pomodoro: 'button-active',
+        shortBreak: '',
+        longBreak: '',
+    }])
+
 
     useEffect(() => {
 
@@ -49,7 +55,20 @@ function PomodoroCounter({ HandleSetAppStyle }) {
         }
     }, [minutes, seconds, counterInterval]);
 
+    function HandleSetStyleButton(button) {
 
+        const active = 'button-active'
+        let newArray = 0
+
+        if(button === 'pomodoro') {
+            newArray = [{pomodoro: active, shortBreak: '', longBreak: ''}]
+        } else if (button === 'short-break') {
+            newArray = [{pomodoro: '', shortBreak: active, longBreak: ''}]
+        } else if (button === 'long-break') {
+            newArray = [{pomodoro: '', shortBreak: '', longBreak: active}]
+        }
+        setStylePomodoroButton(newArray)
+    }
 
     function HandleAddTime(minutes, seconds) {
         destroyInterval();
@@ -145,24 +164,30 @@ function PomodoroCounter({ HandleSetAppStyle }) {
             <div>
                 <Button
                 children={"Pomodoro"}
+                active={stylePomodoroButton.map(e => e.pomodoro)}
                 HandleAddTime={() => HandleAddTime('25', '00')}
                 HandleSetAppStyle={() => HandleSetAppStyle("app-pomodoro-style")}
                 HandleSetPomodoroDivStyle={() => HandleSetPomodoroDivStyle("pomodoroDiv-pomodoro-style")}
                 HandleSetStartButtonStyle={() => HandleSetStartButtonStyle("start-button-pomodoro-style")}
+                HandleSetStyleButton={() => HandleSetStyleButton('pomodoro')}
                 />
                 <Button
                 children={"Short Break"}
+                active={stylePomodoroButton.map(e => e.shortBreak)}
                 HandleAddTime={() => HandleAddTime('05', '00')}
                 HandleSetAppStyle={() => HandleSetAppStyle("app-short-break-style")}
                 HandleSetPomodoroDivStyle={() => HandleSetPomodoroDivStyle("pomodoroDiv-short-break-style")}
                 HandleSetStartButtonStyle={() => HandleSetStartButtonStyle("start-button-short-break-style")}
+                HandleSetStyleButton={() => HandleSetStyleButton('short-break')}
                 />
                 <Button
                 children={"Long Break"}
+                active={stylePomodoroButton.map(e => e.longBreak)}
                 HandleAddTime={() => HandleAddTime('15', '00')}
                 HandleSetAppStyle={() => HandleSetAppStyle("app-long-break-style")}
                 HandleSetPomodoroDivStyle={() => HandleSetPomodoroDivStyle("pomodoroDiv-long-break-style")}
                 HandleSetStartButtonStyle={() => HandleSetStartButtonStyle("start-button-long-break-style")}
+                HandleSetStyleButton={() => HandleSetStyleButton('long-break')}
                 />
             </div>
                 <div>
