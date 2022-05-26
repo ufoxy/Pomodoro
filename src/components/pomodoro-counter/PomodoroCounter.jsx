@@ -174,7 +174,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     //   }
 
     return (
-            <div className={`pomodoroDiv pomodoroDiv-container ${styleDiv}`}>
+            <div className={`pomodoro-counter pomodoro-counter-container ${styleDiv}`}>
             <div>
                 <Button
                 children={"Pomodoro"}
