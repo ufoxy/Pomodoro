@@ -15,7 +15,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     const [progressPercentage, setProgressPercentage] = useState()
     const [counterInterval, setCounterInterval] = useState();
     const [time, setTime] = useState('00:00');
-    const [styleDiv, setStyleDiv] = useState('pomodoroDiv-pomodoro-style');
+    const [stylePomodoroCounter, setStylePomodoroCounter] = useState('pomodoroDiv-pomodoro-style');
     const [startOrStop, setStartOrStop] = useState(false);
     const [startButton, setStartButton] = useState([{
         content: 'START',
@@ -94,7 +94,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     };
 
     function HandleSetPomodoroDivStyle(style) {
-        setStyleDiv(style);
+        setStylePomodoroCounter(style);
     };
 
     function HandleSetStartButtonStyle(style) {
@@ -174,7 +174,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     //   }
 
     return (
-            <div className={`pomodoro-counter pomodoro-counter-container ${styleDiv}`}>
+            <div className={`pomodoro-counter pomodoro-counter-container ${stylePomodoroCounter}`}>
             <div>
                 <Button
                 children={"Pomodoro"}
