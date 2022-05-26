@@ -1,0 +1,26 @@
+.footer {
+    position: absolute;
+    bottom: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:  26px;
+    width: 100vw;
+    font-size: 16px;
+    color: #151515cf;
+    gap: 3px;
+}
+
+.name {
+    color: #151515;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.name:hover {
+    color: #000000;
+}
+
+.heart {
+    height: 24px;
+}
