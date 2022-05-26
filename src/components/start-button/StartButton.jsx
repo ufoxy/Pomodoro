@@ -1,6 +1,5 @@
 import React from 'react';
 
-import ReactAudioPlayer from 'react-audio-player';
 import StartButtonAudio from '../../assets/sounds/mixkit-mouse-click-close-1113.wav'
 import './StartButton.css';
 
