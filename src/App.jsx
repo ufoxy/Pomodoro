@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import PomodoroCounter from './components/pomodoro-counter/PomodoroCounter.jsx';
-import Footer from './components/footer/Footer.jsx';
+// import Footer from './components/footer/Footer.jsx';
 import './App.css';
 
 function App() {
@@ -16,7 +16,10 @@ function App() {
   return (
     <div className={`App ${style}`}>
       <PomodoroCounter HandleSetAppStyle={HandleSetAppStyle} />
-      <Footer />
+      {
+      // <Footer />
+      /* commented footer to be redone */
+      }
     </div>
   );
 }
