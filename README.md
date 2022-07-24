@@ -23,7 +23,7 @@ See how it's used: www.youtube.com.br
 - In the terminal, clone the project:
 
 ```
-git clone https://github.com/ufoxy/sleep-scheduler
+git clone https://github.com/ufoxy/pomodoro
 ```
 - Now install the dependencies using:
 ```
