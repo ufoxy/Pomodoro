@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import percentDiff from 'percentage-difference';
-
-import Button from '../button/Button.jsx';
 import Counter from '../counter/Counter.jsx';
+import Button from '../button/Button.jsx';
 import StartButton from '../start-button/StartButton.jsx';
 import Progress from '../progress-bar/ProgressBar.jsx'
 import './PomodoroCounter.css';
