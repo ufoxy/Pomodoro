@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import percentDiff from 'percentage-difference';
-import Counter from '../counter/Counter.jsx';
-import SimpleButton from '../simple-button/SimpleButton.jsx';
-import StartButton from '../start-button/StartButton.jsx';
-import Progress from '../progress-bar/ProgressBar.jsx'
+import Counter from './Counter.jsx';
+import SimpleButton from './SimpleButton.jsx';
+import StartButton from './StartButton.jsx';
+import Progress from './ProgressBar.jsx'
 import './PomodoroCounter.css';
 
 function PomodoroCounter({ HandleSetAppStyle }) {

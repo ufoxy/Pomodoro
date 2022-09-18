@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import PomodoroCounter from './components/pomodoro-counter/PomodoroCounter.jsx';
+import PomodoroCounter from './components/PomodoroCounter.jsx';
 // import Footer from './components/footer/Footer.jsx';
 import './App.css';
 

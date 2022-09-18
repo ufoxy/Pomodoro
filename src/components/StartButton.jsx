@@ -1,6 +1,5 @@
 import React from 'react';
-
-import StartButtonAudio from '../../assets/sounds/mixkit-mouse-click-close-1113.wav'
+import StartButtonAudio from '../assets/sounds/mixkit-mouse-click-close-1113.wav'
 import './StartButton.css';
 
 function StartButton({ children, className, HandleStartButtonClick, HandleStartOrStop }) {
