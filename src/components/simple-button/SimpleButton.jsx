@@ -1,8 +1,8 @@
 import React from 'react';
 import ButtonAudio from '../../assets/sounds/mixkit-single-classic-click-1116.wav'
-import './Button.css'
+import './SimpleButton.css'
 
-function Button({ children, active, HandleAddTime, HandleSetAppStyle, HandleSetPomodoroDivStyle, HandleSetStartButtonStyle, HandleSetActiveButtonStyle, HandleSetProgressStyle }) {
+function SimpleButton({ children, active, HandleAddTime, HandleSetAppStyle, HandleSetPomodoroDivStyle, HandleSetStartButtonStyle, HandleSetActiveButtonStyle, HandleSetProgressStyle }) {
 
     const audio = new Audio(ButtonAudio)
 
@@ -28,4 +28,4 @@ function Button({ children, active, HandleAddTime, HandleSetAppStyle, HandleSetP
     );
 }
 
-export default Button;
+export default SimpleButton;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import percentDiff from 'percentage-difference';
 import Counter from '../counter/Counter.jsx';
-import Button from '../button/Button';
+import SimpleButton from '../simple-button/SimpleButton.jsx';
 import StartButton from '../start-button/StartButton.jsx';
 import Progress from '../progress-bar/ProgressBar.jsx'
 import './PomodoroCounter.css';
@@ -175,7 +175,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     return (
             <div className={`pomodoro-counter pomodoro-counter-container ${stylePomodoroCounter}`}>
             <div>
-                <Button
+                <SimpleButton
                 children={"Pomodoro"}
                 active={styleButton.map(e => e.pomodoro)}
                 HandleAddTime={() => HandleAddTime('25', '00')}
@@ -185,7 +185,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 HandleSetActiveButtonStyle={() => HandleSetActiveButtonStyle('pomodoro')}
                 HandleSetProgressStyle={() => HandleSetProgressStyle('pomodoro')}
                 />
-                <Button
+                <SimpleButton
                 children={"Short Break"}
                 active={styleButton.map(e => e.shortBreak)}
                 HandleAddTime={() => HandleAddTime('05', '00')}
@@ -195,7 +195,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 HandleSetActiveButtonStyle={() => HandleSetActiveButtonStyle('short-break')}
                 HandleSetProgressStyle={() => HandleSetProgressStyle('short-break')}
                 />
-                <Button
+                <SimpleButton
                 children={"Long Break"}
                 active={styleButton.map(e => e.longBreak)}
                 HandleAddTime={() => HandleAddTime('15', '00')}
