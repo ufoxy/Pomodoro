@@ -7,8 +7,7 @@
 In this project i created a timer based on the pomodoro technique that helps to focus on activities.
 
 The Pomodoro Technique is a time management system that encourages people to work with the time they have. Using this method, you divide your workday into 25-minute chunks, separated by five-minute breaks. These intervals are called pomodoros.
-
-See how it's used: www.youtube.com.br
+<!--- See how it's used: www.youtube.com.br -->
 
 ...
 ## Languages, dependencies and libs used 📚
@@ -38,3 +37,4 @@ npm start
 ...
 
 ---
+
