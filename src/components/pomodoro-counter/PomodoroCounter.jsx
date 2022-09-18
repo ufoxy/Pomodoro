@@ -175,7 +175,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
     return (
             <div className={`pomodoro-counter pomodoro-counter-container ${stylePomodoroCounter}`}>
             <div>
-                <Button
+                {/* <Button
                 children={"Pomodoro"}
                 active={styleButton.map(e => e.pomodoro)}
                 HandleAddTime={() => HandleAddTime('25', '00')}
@@ -204,7 +204,7 @@ function PomodoroCounter({ HandleSetAppStyle }) {
                 HandleSetStartButtonStyle={() => HandleSetStartButtonStyle("start-button-long-break-style")}
                 HandleSetActiveButtonStyle={() => HandleSetActiveButtonStyle('long-break')}
                 HandleSetProgressStyle={() => HandleSetProgressStyle('long-break')}
-                />
+                /> */}
             </div>
                 <div>
                     <Counter time={time} />
